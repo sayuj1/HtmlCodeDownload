@@ -15,28 +15,28 @@ namespace HtmlCodeDownload
             {
                 WebClient client = new WebClient();
                 string protocol = HttpSelect.HttpMode();
-                Console.Write($"Enter Site URL of which you want to download html source code: {protocol}://www.");
+                Console.Write($"\nEnter Site URL of which you want to download html source code: {protocol}://www.");
                 string url = Console.ReadLine();
                 while (url == "")
                 {
                     Console.WriteLine("The URL should not be blank :(");
-                    Console.Write($"Enter Site URL of which you want to download html source code: {protocol}://www.");
+                    Console.Write($"\nEnter Site URL of which you want to download html source code: {protocol}://www.");
                     url = Console.ReadLine();
                 }
                 Console.WriteLine("Downloading Content...");
                 string reply = client.DownloadString($"{protocol}://www.{url}");
-                Console.WriteLine("Content Downloaded Successfully...");
+                Console.WriteLine("Content Downloaded Successfully...\n");
                 Console.WriteLine("Do you want to view the downloaded content?");
                 
                 bool view = true;
                 do
                 {
-                    Console.WriteLine("Press 1 to view");
+                    Console.WriteLine("Press 1 to view and save");
                     Console.WriteLine("Press 2 to save");
                     string s = Console.ReadLine();
                     if (s == "1")
                     {
-                        Console.WriteLine(reply);
+                        Console.WriteLine($"\n{reply}");
                         view = false;
                     }
                         
@@ -52,7 +52,7 @@ namespace HtmlCodeDownload
                         
                 } while (view);
                 string tl = TypeLoc.Location();
-                Console.WriteLine("The file will save in .txt format");
+                Console.WriteLine("\nThe file will save in .txt format");
                 Console.Write("Enter filename: ");
                 string fn = Console.ReadLine();
                 bool fne = true;
@@ -60,7 +60,7 @@ namespace HtmlCodeDownload
                 {
                     if(fn == "")
                     {
-                        Console.WriteLine("The Filename Should not be empty :( ");
+                        Console.WriteLine("\nThe Filename Should not be empty :( ");
                         Console.WriteLine("Enter filename: ");
                         fn = Console.ReadLine();
                         fne = true;
@@ -72,7 +72,7 @@ namespace HtmlCodeDownload
                 } while (fne);
                 File.WriteAllText($@"{tl}\{fn}.txt", reply);
 
-                Console.WriteLine("Do you want to download html source code of another website?");
+                Console.WriteLine("\nDo you want to download html source code of another website?");
                 Console.WriteLine("Type yes or 1 to continue");
                 Console.WriteLine("Type no or 2 to exit");
                 string choice = Console.ReadLine();
@@ -84,7 +84,7 @@ namespace HtmlCodeDownload
                     Console.WriteLine("Enter a valid choice");
 
             } while (getSrc);
-            Console.WriteLine("Have a Good Day!");
+            Console.WriteLine("\nHave a Good Day :)");
             Console.ReadKey();
 
         }
@@ -99,7 +99,7 @@ namespace HtmlCodeDownload
             bool choice = true;
             do
             {
-                Console.WriteLine("Select protocol");
+                Console.WriteLine("\nSelect protocol");
                 Console.WriteLine("Press 1 for HTTP");
                 Console.WriteLine("Press 2 for HTTPS");
                 string x = Console.ReadLine();
@@ -135,7 +135,7 @@ namespace HtmlCodeDownload
             string user = "";
             do
             {
-                Console.WriteLine("Select Location to save the downloaded content");
+                Console.WriteLine("\nSelect Location to save the downloaded content");
                 Console.WriteLine(@"Press 1 for full path e.g C:\Users\sayuj\Desktop\");
                 Console.WriteLine(@"Press 2 for system generated path e.g C:\Users\{username}\Desktop\");
                 string x = Console.ReadLine();
@@ -144,7 +144,7 @@ namespace HtmlCodeDownload
                     bool pathT = true;
                     do
                     {
-                        Console.WriteLine("Enter full path where you want to save your file");
+                        Console.WriteLine("\nEnter full path where you want to save your file");
                         path = Console.ReadLine();
                         if(path == "")
                         {
@@ -162,7 +162,7 @@ namespace HtmlCodeDownload
                     bool userT = true;
                     do
                     {
-                        Console.WriteLine("Enter your username, your file will save to Desktop automatically");
+                        Console.WriteLine("\nEnter your username, your file will save to Desktop automatically");
                         user = Console.ReadLine();
                         if (user =="")
                         {
